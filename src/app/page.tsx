@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
-import CountdownTimer from '@/components/countdown-timer';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
+import CountdownTimer from '@/components/countdown-timer';
 
 const Home: NextPage = () => {
   return (
