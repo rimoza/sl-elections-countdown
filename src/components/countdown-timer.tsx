@@ -72,7 +72,7 @@ const CountdownTimer = () => {
 
   useEffect(() => {
     const targetDate = new Date("2024-11-13T00:00:00");
-    const startDate = new Date("2023-11-13T00:00:00"); // Assuming 1 year countdown
+    const startDate = new Date("2017-11-13T00:00:00"); // Assuming 1 year countdown
 
     const timer = setInterval(() => {
       const now = new Date();
@@ -134,7 +134,7 @@ const CountdownTimer = () => {
 
   return (
     <Card className="w-full max-w-md mx-auto bg-gradient-to-br from-green-500 via-white to-red-500 text-black shadow-lg relative">
-      <CardHeader className="bg-black bg-opacity-30 text-white rounded-t-xl">
+      <CardHeader className="bg-green-600 bg-opacity-70 text-white rounded-t-xl">
         <CardTitle className="text-center text-2xl font-bold">
           Somaliland Election Countdown
         </CardTitle>
