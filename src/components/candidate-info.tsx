@@ -8,6 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const candidateData = [
   {
@@ -33,7 +34,7 @@ const CandidateInfo = () => {
       <DialogTrigger asChild>
         <Button variant="outline">View Candidates</Button>
       </DialogTrigger>
-      <DialogContent className="max-w-4xl">
+      <DialogContent className="sm:max-w-[425px] md:max-w-[700px] lg:max-w-[900px]">
         <DialogHeader>
           <DialogTitle>Presidential Candidates 2024</DialogTitle>
           <DialogDescription>
@@ -41,19 +42,21 @@ const CandidateInfo = () => {
             2024
           </DialogDescription>
         </DialogHeader>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {candidateData.map((candidate, index) => (
-            <Card key={index} className="flex flex-col">
-              <CardHeader>
-                <CardTitle>{candidate.name}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="font-semibold mb-2">{candidate.party}</p>
-                <p className="text-sm">{candidate.bio}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <ScrollArea className="h-[400px] md:h-[500px] w-full rounded-md border p-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {candidateData.map((candidate, index) => (
+              <Card key={index} className="flex flex-col">
+                <CardHeader>
+                  <CardTitle>{candidate.name}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="font-semibold mb-2">{candidate.party}</p>
+                  <p className="text-sm">{candidate.bio}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </ScrollArea>
       </DialogContent>
     </Dialog>
   );
