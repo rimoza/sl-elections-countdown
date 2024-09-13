@@ -18,8 +18,8 @@ const VotingGuide = () => {
         <DialogHeader>
           <DialogTitle>How to Register to Vote</DialogTitle>
           <DialogDescription>
-            Follow these steps to ensure you&apos;re registered for the Somaliland
-            Presidential Election 2024
+            Follow these steps to ensure you&apos;re registered for the
+            Somaliland Presidential Election 2024
           </DialogDescription>
         </DialogHeader>
         <ol className="list-decimal pl-5 space-y-2">
