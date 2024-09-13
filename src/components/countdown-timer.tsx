@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { Facebook, Twitter, MessageCircle } from "lucide-react";
+import { Facebook, Twitter, MessageCircle, Bell } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -13,6 +13,17 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const ElectionInfoModal = () => (
   <Dialog>
@@ -69,10 +80,11 @@ const CountdownTimer = () => {
   });
   const [progress, setProgress] = useState(0);
   const [shareUrl, setShareUrl] = useState("");
+  const [reminderSet, setReminderSet] = useState(false);
 
   useEffect(() => {
     const targetDate = new Date("2024-11-13T00:00:00");
-    const startDate = new Date("2017-11-13T00:00:00"); // Assuming 1 year countdown
+    const startDate = new Date("2017-11-13T00:00:00"); // Assuming 7 years countdown
 
     const timer = setInterval(() => {
       const now = new Date();
@@ -132,6 +144,12 @@ const CountdownTimer = () => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
+  const handleSetReminder = () => {
+    // In a real app, this would integrate with the device's calendar or notification system
+    setReminderSet(true);
+    alert("Reminder set for Election Day!");
+  };
+
   return (
     <Card className="w-full max-w-md mx-auto bg-gradient-to-br from-green-500 via-white to-red-500 text-black shadow-lg relative">
       <CardHeader className="bg-green-600 bg-opacity-70 text-white rounded-t-xl">
@@ -182,6 +200,31 @@ const CountdownTimer = () => {
               <MessageCircle className="h-4 w-4" />
             </Button>
           </div>
+        </div>
+        <div className="mt-4 flex justify-center">
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button variant="outline" className="flex items-center">
+                <Bell className="mr-2 h-4 w-4" />
+                {reminderSet ? "Reminder Set" : "Set Reminder"}
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Set Election Day Reminder</AlertDialogTitle>
+                <AlertDialogDescription>
+                  Would you like to set a reminder for Election Day on November
+                  13, 2024?
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction onClick={handleSetReminder}>
+                  Set Reminder
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
       </CardContent>
     </Card>
