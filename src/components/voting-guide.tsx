@@ -14,7 +14,7 @@ const VotingGuide = () => {
       <DialogTrigger asChild>
         <Button variant="outline">Voting Registration Guide</Button>
       </DialogTrigger>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-2xl bg-black opacity-60">
         <DialogHeader>
           <DialogTitle>How to Register to Vote</DialogTitle>
           <DialogDescription>

@@ -26,7 +26,7 @@ const Home: NextPage = () => {
         </p>
       </div>
       <CountdownTimer />
-      <div className="mt-8 space-x-4 z-50">
+      <div className="mt-8 space-x-4 space-y-2 z-50">
         <CandidateInfo />
         <VotingGuide />
         <ElectionQuiz />

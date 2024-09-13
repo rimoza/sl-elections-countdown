@@ -32,7 +32,7 @@ const ElectionInfoModal = () => (
         Election Info
       </Button>
     </DialogTrigger>
-    <DialogContent className="sm:max-w-[425px]">
+    <DialogContent className="sm:max-w-[425px] bg-black opacity-60">
       <DialogHeader>
         <DialogTitle>Somaliland Presidential Election 2024</DialogTitle>
         <DialogDescription>
